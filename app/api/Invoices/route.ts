@@ -4,12 +4,12 @@ import type { Schema } from "@/amplify/data/resource";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 
-export const config = { runtime: 'edge' };
+//export const config = { runtime: 'edge' };
 
 Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
-const models = client.models as any; // 型チェック回避
+const models = client.models 
 
 // GET リクエストハンドラ: GraphQL の observeQuery を使い、全ての Invoices レコードを取得
 export async function GET() {
