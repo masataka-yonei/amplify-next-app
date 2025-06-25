@@ -12,6 +12,21 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
+
+  Invoices: a
+    .model({
+      InvoiceID: a.id().required(),
+      BillNo: a.string().required(),
+      SlipNo: a.string().required(),
+      CustomerID: a.string().required(),
+      CustomerName: a.string().required(),
+      Products: a.string().required(),
+      Number: a.integer().required(),
+      UnitPrice: a.float().required(),
+      Date: a.string().required(),
+    })
+    .identifier(["InvoiceID"])
+    .authorization((allow) => [allow.publicApiKey()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;

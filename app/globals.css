@@ -6,12 +6,12 @@
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: #CBBEFF;
+  /* --background-start-rgb: #CBBEFF; */
   --background-end-rgb: 255, 255, 255;
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
-  --card-rgb: #6649AE;
+  /* --card-rgb: #6649AE; */
   --card-border-rgb: 131, 134, 135;
 }
 
@@ -28,11 +28,11 @@
   }
 }
 
-* {
+/* * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
+} */
 
 html,
 body {
