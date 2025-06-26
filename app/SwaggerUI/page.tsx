@@ -1,13 +1,22 @@
 'use client';
 
-import SwaggerUI from "swagger-ui-react";
-import "swagger-ui-react/swagger-ui.css";
+import dynamic from 'next/dynamic';
 
+const SwaggerUI = dynamic(() => import('swagger-ui-react'), { ssr: false });
 
-export default function Home() {
+// CSSをクライアントサイドでのみ読み込むようにする
+const SwaggerUICSS = () => {
+  if (typeof window !== 'undefined') {
+    require('swagger-ui-react/swagger-ui.css');
+  }
+  return null;
+};
+
+export default function SwaggerUIPage() {
   return (
-    <div >
-      <h1 >API Documentation</h1>
+    <div>
+      <SwaggerUICSS />
+      <h1>API Documentation</h1>
       <SwaggerUI url="/swagger.json" />
     </div>
   );
