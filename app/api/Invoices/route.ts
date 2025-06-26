@@ -13,7 +13,7 @@ const models = client.models
 
 // GET リクエストハンドラ: GraphQL の observeQuery を使い、全ての Invoices レコードを取得
 export async function GET() {
-  return new Promise((resolve, reject) => {
+  return new Promise<Response>((resolve, reject) => {
     const subscription = models.Invoices.observeQuery({ })
       .subscribe({
         next: (snapshot: any) => {
