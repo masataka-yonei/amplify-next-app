@@ -14,7 +14,7 @@ const models = client.models
 // GET: GraphQL の observeQuery を使用し、Invoice を ID でフィルタして取得
 export async function GET(request: NextRequest, { params }: { params: Promise<{ Id: string }> }) {
   const id = (await params).Id;
-  return new Promise((resolve, reject) => {
+  return new Promise<Response>((resolve, reject) => {
     const subscription = models.Invoices.observeQuery({ filter: { InvoiceID: { eq: id } } })
       .subscribe({
         next: (snapshot: any) => {
